@@ -1,0 +1,244 @@
+%                                                                 aa.dem
+% AA vers. 8.1, LaTeX class for Astronomy & Astrophysics
+% demonstration file
+%                                                       (c) EDP Sciences
+%-----------------------------------------------------------------------
+%
+%\documentclass[referee]{aa} % for a referee version
+%\documentclass[onecolumn]{aa} % for a paper on 1 column  
+%\documentclass[longauth]{aa} % for the long lists of affiliations 
+%\documentclass[rnote]{aa} % for the research notes
+%\documentclass[letter]{aa} % for the letters 
+%
+\documentclass{aa}  
+                       
+
+%
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{txfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[options]{hyperref}
+% To add links in your PDF file, use the package "hyperref"
+% with options according to your LaTeX or PDFLaTeX drivers.
+%
+\begin{document} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%·B·E·G·I·N·
+
+   \title{A Bayesian approach to the study of stellar formation}
+
+   \subtitle{}
+
+   \author{L. Gramajo
+          \inst{1}
+          \thanks{luciana@oac.uncor.edu}
+          \and
+          M. Lares
+          \inst{1,2}\fnmsep
+          }
+
+   \institute{Observatorio Astron\'omico, Universidad Nacional de C\'ordoba \\
+              \email{luciana@oac.uncor.edu}
+         \and
+              Instituto de Astronom\'{\i}a Te\'orica y Experimental (IATE)
+             }
+
+             
+   \date{Received September 15, 1996; accepted March 16, 1997}
+
+% \abstract{}{}{}{}{} 
+% 5 {} token are mandatory
+ 
+  \abstract
+  % context heading (optional)
+  % {} leave it empty if necessary  
+   {Context}
+  % aims heading (mandatory)
+   {Aims}
+  % methods heading (mandatory)
+   {Methods}
+  % results heading (mandatory)
+   {Results}
+  % conclusions heading (optional), leave it empty if necessary 
+   {}
+
+   \keywords{stellar formation -- statistical methods }
+
+   \maketitle
+
+
+
+%····································································
+%                                00SECTIONS
+
+\section{Introduction} \label{S_intro}
+%{{{
+
+
+%% algo de estrellas, formacion estelar, etc.
+
+
+The study of many astronomical phenomena is characterized by the inability
+to control experiments.
+%
+Given an object under study, its data are unique and unrepeatable, and
+we rely on the development of models to assess the nature of the
+underlying physical processes.
+%
+On the development of models, a series of competing models are
+compared to the available data and the best model must be addressed by
+means of statistical inference.
+%
+Bayesian inference is one of the most used techniques in astronomy and
+physics to obtain the most reliable model to represent observational
+data.
+
+
+
+%}}}
+
+\begin{figure}
+   \centering
+   \includegraphics[width=0.5\textwidth]{figs/plot.pdf}
+   \caption{
+   Distribution of concentration, $D_{4000}$, SFR and starmass for galaxies.
+   }
+   \label{F_D4000}
+\end{figure}
+
+
+
+
+
+\section{Case study: ISO Oph 32} \label{S_stats}
+%{{{
+ 
+%}}}
+
+\section{MonteCarlo Methods} \label{S_MCMC}
+%{{{
+ 
+In this section we describe the methodology used to derive constraints
+on the stellar formation model.
+%
+We use the model developed by Whitney et al (200?), hereafter W07.
+%
+This model has several free parameters that can be adjusted to fit
+observed data.
+%
+We implement a Markov Chain Monte Carlo (MCMC) procedure to traverse
+the parameter space. 
+%
+Although the model has 15 parameters, some of them are well known for
+this particular object, so that we fixed them and explored a subspace
+of the parameters.
+%
+The subset of parameters chosen to be explored comprise the following
+parameters: 
+
+
+
+The parameter space explored is limited to 16 parameters, as described
+below:
+ 
+\begin{itemize}
+   \item Central source parameters: stellar mass, radius, temperature
+   \item Infalling envelope parameters: envelope mass acretion rate,
+      envelope outer radius, cavity opening angle
+   \item Disk parameters: disk mass, disk outer radius, disk inner
+      radius, disk mas accretion rate, disk radial density exponent
+\end{itemize}
+ 
+
+
+
+
+The goal is to find the model that maximizes the posterior probability
+for a given data.
+%
+This quantity is related to the likelihood, i.e., the probability of
+the data given the model, andthe priors, which is the joint
+probability of the model, and is given by the Bayes formula:
+
+
+\begin{equation}
+P(M|D) = \frac{P(D|M)}{P(M)}
+\end{equation}
+
+The prior functions are given ad-hoc for each case study, and comprise
+information from observations, bibliography or previous measurements.
+%
+For example, when studiyng a proto-stellar object confirmed to be in
+the FU Orionis family, the general properties or range of values for
+the parameters are known.
+%
+The incorporation of the prior function does not affect the final
+probability distribution, but enhances the ability of the system to
+find the optimal region in parameter space in less time.
+
+
+
+This method is widely used to contrain model parameters (citar
+Spergel, Sanchez, Stroeer).
+%
+One of their most prominent properties is that has the advantage of
+allowing for the computation of a confidence limits for each
+parameter.
+%
+Also, it allows for an automated, unbiased way to find the best model
+for a given set of observations of a proto-stellar object.
+%
+The information gathered from observations or in the bibliography are
+incorporated to the model finding pipeline in the definition of the
+priors for the model parameters.
+%
+%}}}
+
+
+
+
+\section{Statistical Analysis} \label{S_stats}
+%{{{     
+
+
+\subsection{The choice of priors} \label{S_}
+
+Criterios para elegir los priors.  Tipo de objeto, mediciones
+anteriores, bibliografia.
+
+\subsection{Exploring the parameter space } \label{S_}
+
+Eleccion del sigma de los saltos...
+
+\subsection{Convergence of Markov Chains} \label{S_}
+
+criterio de convergencia de metropolis hastings
+
+\subsection{Confidence intervals for the best model} \label{S_}
+
+calculo de los errores
+
+%}}}
+
+
+
+
+\section{Conclusions} \label{S_conclusus} 
+%{{{
+ 
+%}}}
+
+
+%····································································
+
+
+\footnotesize{
+  \bibliographystyle{mn2e}
+  \bibliography{Bibliography}
+}
+
+\end{document}
+
+
+
